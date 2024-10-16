@@ -1,12 +1,26 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const router = require('./routers/router'); 
+const router = require('./routers/router');
+const sequelize = require('./dataBase/dataBase');
+const Vagas = require('./models/Vagas.js')
 
-app.use(bodyParser.json());
+async function startServer() {
+    try {
+        await sequelize.sync(); 
+        console.log('Banco de dados sincronizado');
+    } catch (err) {
+        console.log('Erro ao sincronizar banco de dados', err);
+    }
 
-app.use('/vaga', router);
+    app.use(bodyParser.json());
 
-app.listen(3000, () => console.log('OK'));
+    app.use('/vaga', router);
+
+    app.listen(3000, () => console.log('OK'));
+}
+
+
+startServer()
 
 module.exports = app 

@@ -1,0 +1,32 @@
+const sequelize = require('../dataBase/dataBase.js');
+const {DataTypes}  = require('sequelize');
+
+const Vaga = sequelize.define('Vaga', {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  titulo: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  descricao: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  cargo: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  cidade: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  salario: {
+    type: DataTypes.DECIMAL,
+    allowNull: true,
+  },
+});
+
+module.exports = Vaga;
