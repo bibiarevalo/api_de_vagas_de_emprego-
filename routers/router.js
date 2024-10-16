@@ -3,7 +3,7 @@ const router = express.Router();
 const controller = require('../controllers/controller');
 
 
-router.post('/vagas', controller.addNewVaga)
+ router.post('/vagas', controller.addNewVaga)
 router.get('/vagas', controller.listTitulo)
 router.get('/vagas/:id', controller.detalhesVaga)
 router.put('/vagas/:id', controller.updateVaga)
