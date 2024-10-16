@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 
-const conexao = new Sequelize('postgres://ovwdiexc:4HsRS_npEfCJCB47v-iITg_M_758Ysqs@isabelle.db.elephantsql.com/ovwdiexc'); 
+const conexao = new Sequelize('URL AQUI'); 
 
 async function conectar() {
     try {
